@@ -18,6 +18,7 @@ def shift_string(string: str) -> str:
             elif stack[index] == 'Z' and stack[index + 1] != 'Z':
                 stack[index] = 'A'
                 stack[index + 1] = ALPHABET[(ALPHABET.index(stack[index + 1]) + 1) % 26]
+                return ''.join(stack[::-1]) + f' <= {((perf_counter() - start_time) * 1000).__round__(4)} ms'
         except IndexError:
             stack[index] = 'A'
             stack.append('A')
